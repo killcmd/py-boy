@@ -23,6 +23,9 @@ Installs required pip modules for python.<br>
 py-boy.bat squeeze<br>
 Unpacks the payload.bin file from the payloads directory.<br>
 <br>
+py-boy.bat oos-prep<br>
+Moves necessary files from oos folder to the output folder for flashing.<br>
+<br>
 ## VERSION
 The VERSION file is a readable text file you can set up to include bits of information as strings.<br>
 %dist[x]% variable is used to read the lines x representing the line number.
