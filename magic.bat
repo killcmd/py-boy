@@ -1,8 +1,8 @@
 @echo off
 set arg1=%1
 if defined arg1 goto %arg1%
+if not defined arg1 exit
 :cleanboy
-cls
 .\bin\fastboot -w
 .\bin\fastboot reboot fastboot
 .\bin\fastboot flash --slot=all boot .\output\boot.img
@@ -38,10 +38,8 @@ cls
 .\bin\fastboot flash --slot=all xbl .\output\xbl.img
 .\bin\fastboot flash --slot=all xbl_config .\output\xbl_config.img
 .\bin\fastboot reboot fastboot
-GOTO eof
-
+exit
 :dirtyboy
-cls
 .\bin\fastboot reboot fastboot
 .\bin\fastboot flash --slot=all boot .\output\boot.img
 .\bin\fastboot flash --slot=all recovery .\output\recovery.img
@@ -76,16 +74,14 @@ cls
 .\bin\fastboot flash --slot=all xbl .\output\xbl.img
 .\bin\fastboot flash --slot=all xbl_config .\output\xbl_config.img
 .\bin\fastboot reboot fastboot
-GOTO eof
+exit
 :squeeze
 python payload_dumper.py .\payloads\payload.bin
-cls
 exit
 :prep
 pip install protobuf==3.20.1
 pip install six
 pip install bsdiff4
-cls
 exit
 :oos-prep
 xcopy oos\abl.img output
@@ -110,8 +106,4 @@ xcopy oos\tz.img output
 xcopy oos\uefisecapp.img output
 xcopy oos\xbl.img output
 xcopy oos\xbl_config.img output
-cls
-exit
-:eof
-cls
 exit
