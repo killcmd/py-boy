@@ -1,24 +1,6 @@
-@ECHO OFF
-setlocal enabledelayedexpansion
-set count=0
-for /f "tokens=*" %%x in (VERSION) do (
-	set /a count+=1
-    set "Dist[!count!]=%%x"
-)
+@echo off
 set arg1=%1
 if defined arg1 goto %arg1%
-@ECHO OFF
-echo ---------------------------------
-echo     %dist[1]%
-echo     %dist[2]%
-echo     %dist[3]%
-echo     %dist[4]%
-echo C-Clean Install------------------
-echo D-Dirty Install------------------
-echo ---------------------------------
-choice /C cd /M "Pick: "
-IF %errorlevel% EQU 1 goto cleanboy
-IF %errorlevel% EQU 2 goto dirtyboy
 :cleanboy
 cls
 .\bin\fastboot -w
@@ -56,9 +38,10 @@ cls
 .\bin\fastboot flash --slot=all xbl .\output\xbl.img
 .\bin\fastboot flash --slot=all xbl_config .\output\xbl_config.img
 .\bin\fastboot reboot fastboot
-GOTO fin
+GOTO eof
 
 :dirtyboy
+cls
 .\bin\fastboot reboot fastboot
 .\bin\fastboot flash --slot=all boot .\output\boot.img
 .\bin\fastboot flash --slot=all recovery .\output\recovery.img
@@ -93,18 +76,42 @@ GOTO fin
 .\bin\fastboot flash --slot=all xbl .\output\xbl.img
 .\bin\fastboot flash --slot=all xbl_config .\output\xbl_config.img
 .\bin\fastboot reboot fastboot
-GOTO fin
-
-
-:fin
-cls
-Title Shiny!
-echo Thank you for using my %Dist[4]%.
-timeout /t 4
-exit 
+GOTO eof
 :squeeze
 python payload_dumper.py .\payloads\payload.bin
+cls
 exit
 :prep
-pip install -r requirements.txt
+pip install protobuf==3.20.1
+pip install six
+pip install bsdiff4
+cls
+exit
+:oos-prep
+xcopy oos\abl.img output
+xcopy oos\aop.img output
+xcopy oos\bluetooth.img output
+xcopy oos\cmnlib.img output
+xcopy oos\cmnlib64.img output
+xcopy oos\devcfg.img output
+xcopy oos\dsp.img output
+xcopy oos\featenabler.img output
+xcopy oos\hyp.img output
+xcopy oos\imagefv.img output
+xcopy oos\keymaster.img output
+xcopy oos\logo.img output
+xcopy oos\mdm_oem_stanvbk.img output
+xcopy oos\modem.img output
+xcopy oos\multiimgoem.img output
+xcopy oos\qupfw.img output
+xcopy oos\spunvm.img output
+xcopy oos\storesec.img output
+xcopy oos\tz.img output
+xcopy oos\uefisecapp.img output
+xcopy oos\xbl.img output
+xcopy oos\xbl_config.img output
+cls
+exit
+:eof
+cls
 exit
