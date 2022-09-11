@@ -83,27 +83,27 @@ pip install protobuf==3.20.1
 pip install six
 pip install bsdiff4
 exit
-:oos-prep
-xcopy oos\abl.img output
-xcopy oos\aop.img output
-xcopy oos\bluetooth.img output
-xcopy oos\cmnlib.img output
-xcopy oos\cmnlib64.img output
-xcopy oos\devcfg.img output
-xcopy oos\dsp.img output
-xcopy oos\featenabler.img output
-xcopy oos\hyp.img output
-xcopy oos\imagefv.img output
-xcopy oos\keymaster.img output
-xcopy oos\logo.img output
-xcopy oos\mdm_oem_stanvbk.img output
-xcopy oos\modem.img output
-xcopy oos\multiimgoem.img output
-xcopy oos\qupfw.img output
-xcopy oos\spunvm.img output
-xcopy oos\storesec.img output
-xcopy oos\tz.img output
-xcopy oos\uefisecapp.img output
-xcopy oos\xbl.img output
-xcopy oos\xbl_config.img output
+:oosprep
+copy .\oos\abl.img .\output
+copy .\oos\aop.img .\output
+copy .\oos\bluetooth.img .\output
+copy .\oos\cmnlib.img .\output
+copy .\oos\cmnlib64.img .\output
+copy .\oos\devcfg.img .\output
+copy .\oos\dsp.img .\output
+copy .\oos\featenabler.img .\output
+copy .\oos\hyp.img .\output
+copy .\oos\imagefv.img .\output
+copy .\oos\keymaster.img .\output
+copy .\oos\logo.img output
+copy .\oos\mdm_oem_stanvbk.img .\output
+copy .\oos\modem.img .\output
+copy .\oos\multiimgoem.img .\output
+copy .\oos\qupfw.img .\output
+copy .\oos\spunvm.img .\output
+copy .\oos\storsec.img .\output
+copy .\oos\tz.img .\output
+copy .\oos\uefisecapp.img .\output
+copy .\oos\xbl.img .\output
+copy .\oos\xbl_config.img .\output
 exit
