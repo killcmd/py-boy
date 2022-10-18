@@ -5,9 +5,27 @@ Made for the Oneplus 8 Series.
 Windows 10 or above
 Python 3 (set in environment variables)
 
-## Manual
-Functions are laid out in GUI.
+## GUI
+Upgrade:
+Dirty install
 
+Fresh Install:
+Clean Install with Data Wipe.
+
+Process activity is indicated by Waiting Spinner. As long as the wheel is spinning the process is live.
+
+Notification toasts will pop up when task is finished, also during launching and closing of the application.
+
+## Advanced Menu
+Developer Mode: 
+Enables Staging for Firmware and Image/ROM Files.
+
+Show Logs:
+Shows Command Line logs, for troubleshooting.
+
+Install PIP Reqs:
+Installs python modules needed for Developer Mode.
+ 
 ## Guide
 Files used are in img format, and totals 32 files.
 ROM Files:
@@ -46,4 +64,6 @@ Firmware Files:
 -xbl.img
 -xbl_config.img
 
+
+## Warning
 You must start from a working build, the first command in the flashing process reboots to fastboot mode recovery.

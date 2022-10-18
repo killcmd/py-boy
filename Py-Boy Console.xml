@@ -22,6 +22,11 @@ Py-Boy Console
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Py_Boy.My.Resources.Resources.animated_gif_waiting_circle_5">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Py_Boy.My.Resources.Resources.snake_animal_clipart_md_3214864176">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
